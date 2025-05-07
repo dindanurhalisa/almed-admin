@@ -13,6 +13,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Store {
   id           String        @id @default(uuid())
   name         String
@@ -91,20 +100,20 @@ enum PaymentMethod {
 }
 
 model Transaction {
-  id              String        @id @default(uuid())
-  storeId         String
-  store           Store         @relation("StoreToTransaction", fields: [storeId], references: [id])
-  orderItems      OrderItem[]   @relation("TransactionToOrderItem")
-  userId          String        @default("")
-  name            String
-  phone           String
-  address         String
-  postCode        String
-  paymentMethod   PaymentMethod
-  isPaid          Boolean       @default(false)
-  totalAmount     Decimal
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
+  id            String        @id @default(uuid())
+  storeId       String
+  store         Store         @relation("StoreToTransaction", fields: [storeId], references: [id])
+  orderItems    OrderItem[]   @relation("TransactionToOrderItem")
+  userId        String        @default("")
+  name          String
+  phone         String
+  address       String
+  postCode      String
+  paymentMethod PaymentMethod
+  isPaid        Boolean       @default(false)
+  totalAmount   Decimal
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 
   @@index([storeId])
 }
@@ -116,7 +125,7 @@ model OrderItem {
   productId     String
   product       Product     @relation(fields: [productId], references: [id])
   quantity      Int
-  price         Decimal     // Price at the time of purchase
+  price         Decimal // Price at the time of purchase
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 

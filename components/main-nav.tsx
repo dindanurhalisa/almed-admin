@@ -38,6 +38,11 @@ export function MainNav({
       active: pathname === `/${params.storeId}/transactions`,
     },
     {
+      href: `/${params.storeId}/user-list`,
+      label: "User List",
+      active: pathname === `/${params.storeId}/user-list`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Settings",
       active: pathname === `/${params.storeId}/settings`,
