@@ -44,7 +44,7 @@ export async function POST(req: Request) {
 
         if (user) {
             return NextResponse.json({
-                message: "User already exists",
+                message: "User already exist",
             }, {
                 status: 400,
                 headers: corsHeaders,
