@@ -44,7 +44,7 @@ export async function POST(req: Request) {
 
         if (!user) {
             return NextResponse.json({
-                message: "User not found",
+                message: "User tidak ditemukan",
             }, {
                 status: 404,
                 headers: corsHeaders,
@@ -63,7 +63,7 @@ export async function POST(req: Request) {
         }
 
         return NextResponse.json({
-            message: "Login successful",
+            message: "Login sukses",
             user,
         }, {
             status: 200,
