@@ -55,7 +55,7 @@ export async function POST(req: Request) {
 
         if (!isPasswordValid) {
             return NextResponse.json({
-                message: "Invalid password",
+                message: "Password salah",
             }, {
                 status: 401,
                 headers: corsHeaders,
