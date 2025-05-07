@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
         if (!email || !password) {
             return NextResponse.json({
-                message: "Please provide email and password",
+                message: "Please provide email dan password",
             }, {
                 status: 400,
                 headers: corsHeaders,
