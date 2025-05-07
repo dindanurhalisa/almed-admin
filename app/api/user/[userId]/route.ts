@@ -8,7 +8,7 @@ export async function PATCH(req: Request, { params }: { params: { userId: string
 
         if (!name) {
             return NextResponse.json({
-                message: "Please provide name",
+                message: "Dimohon diisi namanya",
             }, {
                 status: 400,
             });
